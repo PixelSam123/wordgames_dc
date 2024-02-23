@@ -1,46 +1,65 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:wordgames_dc/providers.dart';
 
-class SettingsPage extends StatefulWidget {
+class SettingsPage extends ConsumerStatefulWidget {
   const SettingsPage({super.key});
 
   @override
-  State<SettingsPage> createState() => _SettingsPageState();
+  ConsumerState<SettingsPage> createState() => _SettingsPageState();
 }
 
-class _SettingsPageState extends State<SettingsPage> {
-  int _counter = 0;
+class _SettingsPageState extends ConsumerState<SettingsPage> {
+  final textScaleController = TextEditingController();
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  @override
+  void initState() {
+    super.initState();
+    textScaleController.text =
+        (ref.read(textScaleProvider).asData?.value ?? 1.0).toString();
+  }
+
+  @override
+  void dispose() {
+    textScaleController.dispose();
+    super.dispose();
+  }
+
+  void _setTextScale() {
+    final textScale = ref.read(textScaleProvider.notifier);
+    textScale.set(double.parse(textScaleController.text));
+  }
+
+  void _setIsDarkMode(bool value) {
+    final isDarkMode = ref.read(isDarkModeProvider.notifier);
+    isDarkMode.set(value);
   }
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = ref.watch(isDarkModeProvider);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text('Settings'),
       ),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'Loll apaan lah tulisan ini:',
+          children: [
+            const Text('Dark Mode'),
+            Switch(
+              value: isDarkMode.asData?.value ?? true,
+              onChanged: _setIsDarkMode,
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            const Text('Text Scale'),
+            TextField(
+              controller: textScaleController,
+              onEditingComplete: _setTextScale,
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }
