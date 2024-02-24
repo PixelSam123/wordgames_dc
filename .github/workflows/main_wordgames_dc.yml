@@ -10,7 +10,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-        uses: subosito/flutter-action@v2.12.0
+      - uses: subosito/flutter-action@v2.12.0
         with:
           channel: 'stable'
       - run: flutter build windows
@@ -19,7 +19,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
-        uses: subosito/flutter-action@v2.12.0
+      - uses: subosito/flutter-action@v2.12.0
         with:
           channel: 'stable'
       - run: flutter build macos
@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        uses: subosito/flutter-action@v2.12.0
+      - uses: subosito/flutter-action@v2.12.0
         with:
           channel: 'stable'
       - run: |
