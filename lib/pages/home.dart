@@ -152,11 +152,14 @@ class _HomePageState extends ConsumerState<HomePage> {
   }
 
   Future<void> _disconnectFromServer() async {
-    await _chatSubscription?.cancel();
+    _timer?.cancel();
 
+    await _chatSubscription?.cancel();
     await _channel?.sink.close();
 
     setState(() {
+      _timerText = '';
+
       _channel = null;
 
       _wordBoxGuide = 'WAITING ROUND START!';
