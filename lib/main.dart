@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:window_size/window_size.dart';
@@ -9,16 +11,18 @@ const _title = 'Wordgames Client';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  final currentWindowFrame = (await getWindowInfo()).frame;
+  if (Platform.isWindows || Platform.isMacOS || Platform.isLinux) {
+    final currentWindowFrame = (await getWindowInfo()).frame;
 
-  setWindowTitle(_title);
-  setWindowMinSize(const Size(480, 540));
-  setWindowFrame(Rect.fromLTWH(
-    currentWindowFrame.left,
-    currentWindowFrame.top,
-    640,
-    720,
-  ));
+    setWindowTitle(_title);
+    setWindowMinSize(const Size(480, 540));
+    setWindowFrame(Rect.fromLTWH(
+      currentWindowFrame.left,
+      currentWindowFrame.top,
+      640,
+      720,
+    ));
+  }
 
   runApp(const ProviderScope(child: MyApp()));
 }
