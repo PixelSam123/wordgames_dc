@@ -220,7 +220,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                     'Server URL (Connection: ${_channel != null ? 'Connected' : 'Not Connected'})',
               ),
               onChanged: _setServerUrl,
-              onEditingComplete: _toggleConnectToServer,
+              onEditingComplete: _connectToServer,
             ),
             const SizedBox(height: 16.0),
             ElevatedButton(
