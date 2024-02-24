@@ -15,12 +15,12 @@ void main() async {
     final currentWindowFrame = (await getWindowInfo()).frame;
 
     setWindowTitle(_title);
-    setWindowMinSize(const Size(480, 540));
+    setWindowMinSize(const Size(600, 800));
     setWindowFrame(Rect.fromLTWH(
       currentWindowFrame.left,
       currentWindowFrame.top,
-      640,
-      720,
+      800,
+      1000,
     ));
   }
 
