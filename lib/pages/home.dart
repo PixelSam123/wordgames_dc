@@ -56,7 +56,11 @@ class _HomePageState extends ConsumerState<HomePage> {
     }
   }
 
-  void _connectToServer() {
+  void _connectToServer() async {
+    if (_channel != null) {
+      await _disconnectFromServer();
+    }
+
     final channel = WebSocketChannel.connect(
       Uri.parse(ref.read(serverUrlProvider).asData!.value),
     );
