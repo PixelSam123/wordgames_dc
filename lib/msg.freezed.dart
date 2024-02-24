@@ -15,25 +15,82 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Message _$MessageFromJson(Map<String, dynamic> json) {
-  return _Message.fromJson(json);
+  switch (json['type']) {
+    case 'ChatMessage':
+      return ChatMesssage.fromJson(json);
+    case 'OngoingRoundInfo':
+      return OngoingRoundInfo.fromJson(json);
+    case 'FinishedRoundInfo':
+      return FinishedRoundInfo.fromJson(json);
+    case 'FinishedGame':
+      return FinishedGame.fromJson(json);
+
+    default:
+      throw CheckedFromJsonException(
+          json, 'type', 'Message', 'Invalid union type "${json['type']}"!');
+  }
 }
 
 /// @nodoc
 mixin _$Message {
-  String get type => throw _privateConstructorUsedError;
-  String get content => throw _privateConstructorUsedError;
-
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String content) chatMessage,
+    required TResult Function(OngoingRoundInfoContent content) ongoingRoundInfo,
+    required TResult Function(FinishedRoundInfoContent content)
+        finishedRoundInfo,
+    required TResult Function() finishedGame,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String content)? chatMessage,
+    TResult? Function(OngoingRoundInfoContent content)? ongoingRoundInfo,
+    TResult? Function(FinishedRoundInfoContent content)? finishedRoundInfo,
+    TResult? Function()? finishedGame,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String content)? chatMessage,
+    TResult Function(OngoingRoundInfoContent content)? ongoingRoundInfo,
+    TResult Function(FinishedRoundInfoContent content)? finishedRoundInfo,
+    TResult Function()? finishedGame,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ChatMesssage value) chatMessage,
+    required TResult Function(OngoingRoundInfo value) ongoingRoundInfo,
+    required TResult Function(FinishedRoundInfo value) finishedRoundInfo,
+    required TResult Function(FinishedGame value) finishedGame,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ChatMesssage value)? chatMessage,
+    TResult? Function(OngoingRoundInfo value)? ongoingRoundInfo,
+    TResult? Function(FinishedRoundInfo value)? finishedRoundInfo,
+    TResult? Function(FinishedGame value)? finishedGame,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ChatMesssage value)? chatMessage,
+    TResult Function(OngoingRoundInfo value)? ongoingRoundInfo,
+    TResult Function(FinishedRoundInfo value)? finishedRoundInfo,
+    TResult Function(FinishedGame value)? finishedGame,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $MessageCopyWith<Message> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $MessageCopyWith<$Res> {
   factory $MessageCopyWith(Message value, $Res Function(Message) then) =
       _$MessageCopyWithImpl<$Res, Message>;
-  @useResult
-  $Res call({String type, String content});
 }
 
 /// @nodoc
@@ -45,56 +102,32 @@ class _$MessageCopyWithImpl<$Res, $Val extends Message>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? content = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      content: null == content
-          ? _value.content
-          : content // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$MessageImplCopyWith<$Res> implements $MessageCopyWith<$Res> {
-  factory _$$MessageImplCopyWith(
-          _$MessageImpl value, $Res Function(_$MessageImpl) then) =
-      __$$MessageImplCopyWithImpl<$Res>;
-  @override
+abstract class _$$ChatMesssageImplCopyWith<$Res> {
+  factory _$$ChatMesssageImplCopyWith(
+          _$ChatMesssageImpl value, $Res Function(_$ChatMesssageImpl) then) =
+      __$$ChatMesssageImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String type, String content});
+  $Res call({String content});
 }
 
 /// @nodoc
-class __$$MessageImplCopyWithImpl<$Res>
-    extends _$MessageCopyWithImpl<$Res, _$MessageImpl>
-    implements _$$MessageImplCopyWith<$Res> {
-  __$$MessageImplCopyWithImpl(
-      _$MessageImpl _value, $Res Function(_$MessageImpl) _then)
+class __$$ChatMesssageImplCopyWithImpl<$Res>
+    extends _$MessageCopyWithImpl<$Res, _$ChatMesssageImpl>
+    implements _$$ChatMesssageImplCopyWith<$Res> {
+  __$$ChatMesssageImplCopyWithImpl(
+      _$ChatMesssageImpl _value, $Res Function(_$ChatMesssageImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
     Object? content = null,
   }) {
-    return _then(_$MessageImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      content: null == content
+    return _then(_$ChatMesssageImpl(
+      null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
@@ -104,62 +137,944 @@ class __$$MessageImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$MessageImpl implements _Message {
-  const _$MessageImpl({required this.type, required this.content});
+class _$ChatMesssageImpl implements ChatMesssage {
+  const _$ChatMesssageImpl(this.content, {final String? $type})
+      : $type = $type ?? 'ChatMessage';
 
-  factory _$MessageImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MessageImplFromJson(json);
+  factory _$ChatMesssageImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ChatMesssageImplFromJson(json);
 
-  @override
-  final String type;
   @override
   final String content;
 
+  @JsonKey(name: 'type')
+  final String $type;
+
   @override
   String toString() {
-    return 'Message(type: $type, content: $content)';
+    return 'Message.chatMessage(content: $content)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MessageImpl &&
-            (identical(other.type, type) || other.type == type) &&
+            other is _$ChatMesssageImpl &&
             (identical(other.content, content) || other.content == content));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, type, content);
+  int get hashCode => Object.hash(runtimeType, content);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$MessageImplCopyWith<_$MessageImpl> get copyWith =>
-      __$$MessageImplCopyWithImpl<_$MessageImpl>(this, _$identity);
+  _$$ChatMesssageImplCopyWith<_$ChatMesssageImpl> get copyWith =>
+      __$$ChatMesssageImplCopyWithImpl<_$ChatMesssageImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String content) chatMessage,
+    required TResult Function(OngoingRoundInfoContent content) ongoingRoundInfo,
+    required TResult Function(FinishedRoundInfoContent content)
+        finishedRoundInfo,
+    required TResult Function() finishedGame,
+  }) {
+    return chatMessage(content);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String content)? chatMessage,
+    TResult? Function(OngoingRoundInfoContent content)? ongoingRoundInfo,
+    TResult? Function(FinishedRoundInfoContent content)? finishedRoundInfo,
+    TResult? Function()? finishedGame,
+  }) {
+    return chatMessage?.call(content);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String content)? chatMessage,
+    TResult Function(OngoingRoundInfoContent content)? ongoingRoundInfo,
+    TResult Function(FinishedRoundInfoContent content)? finishedRoundInfo,
+    TResult Function()? finishedGame,
+    required TResult orElse(),
+  }) {
+    if (chatMessage != null) {
+      return chatMessage(content);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ChatMesssage value) chatMessage,
+    required TResult Function(OngoingRoundInfo value) ongoingRoundInfo,
+    required TResult Function(FinishedRoundInfo value) finishedRoundInfo,
+    required TResult Function(FinishedGame value) finishedGame,
+  }) {
+    return chatMessage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ChatMesssage value)? chatMessage,
+    TResult? Function(OngoingRoundInfo value)? ongoingRoundInfo,
+    TResult? Function(FinishedRoundInfo value)? finishedRoundInfo,
+    TResult? Function(FinishedGame value)? finishedGame,
+  }) {
+    return chatMessage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ChatMesssage value)? chatMessage,
+    TResult Function(OngoingRoundInfo value)? ongoingRoundInfo,
+    TResult Function(FinishedRoundInfo value)? finishedRoundInfo,
+    TResult Function(FinishedGame value)? finishedGame,
+    required TResult orElse(),
+  }) {
+    if (chatMessage != null) {
+      return chatMessage(this);
+    }
+    return orElse();
+  }
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$MessageImplToJson(
+    return _$$ChatMesssageImplToJson(
       this,
     );
   }
 }
 
-abstract class _Message implements Message {
-  const factory _Message(
-      {required final String type,
-      required final String content}) = _$MessageImpl;
+abstract class ChatMesssage implements Message {
+  const factory ChatMesssage(final String content) = _$ChatMesssageImpl;
 
-  factory _Message.fromJson(Map<String, dynamic> json) = _$MessageImpl.fromJson;
+  factory ChatMesssage.fromJson(Map<String, dynamic> json) =
+      _$ChatMesssageImpl.fromJson;
 
-  @override
-  String get type;
-  @override
   String get content;
+  @JsonKey(ignore: true)
+  _$$ChatMesssageImplCopyWith<_$ChatMesssageImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$OngoingRoundInfoImplCopyWith<$Res> {
+  factory _$$OngoingRoundInfoImplCopyWith(_$OngoingRoundInfoImpl value,
+          $Res Function(_$OngoingRoundInfoImpl) then) =
+      __$$OngoingRoundInfoImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({OngoingRoundInfoContent content});
+
+  $OngoingRoundInfoContentCopyWith<$Res> get content;
+}
+
+/// @nodoc
+class __$$OngoingRoundInfoImplCopyWithImpl<$Res>
+    extends _$MessageCopyWithImpl<$Res, _$OngoingRoundInfoImpl>
+    implements _$$OngoingRoundInfoImplCopyWith<$Res> {
+  __$$OngoingRoundInfoImplCopyWithImpl(_$OngoingRoundInfoImpl _value,
+      $Res Function(_$OngoingRoundInfoImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? content = null,
+  }) {
+    return _then(_$OngoingRoundInfoImpl(
+      null == content
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as OngoingRoundInfoContent,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $OngoingRoundInfoContentCopyWith<$Res> get content {
+    return $OngoingRoundInfoContentCopyWith<$Res>(_value.content, (value) {
+      return _then(_value.copyWith(content: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$OngoingRoundInfoImpl implements OngoingRoundInfo {
+  const _$OngoingRoundInfoImpl(this.content, {final String? $type})
+      : $type = $type ?? 'OngoingRoundInfo';
+
+  factory _$OngoingRoundInfoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OngoingRoundInfoImplFromJson(json);
+
+  @override
+  final OngoingRoundInfoContent content;
+
+  @JsonKey(name: 'type')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'Message.ongoingRoundInfo(content: $content)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OngoingRoundInfoImpl &&
+            (identical(other.content, content) || other.content == content));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, content);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OngoingRoundInfoImplCopyWith<_$OngoingRoundInfoImpl> get copyWith =>
+      __$$OngoingRoundInfoImplCopyWithImpl<_$OngoingRoundInfoImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String content) chatMessage,
+    required TResult Function(OngoingRoundInfoContent content) ongoingRoundInfo,
+    required TResult Function(FinishedRoundInfoContent content)
+        finishedRoundInfo,
+    required TResult Function() finishedGame,
+  }) {
+    return ongoingRoundInfo(content);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String content)? chatMessage,
+    TResult? Function(OngoingRoundInfoContent content)? ongoingRoundInfo,
+    TResult? Function(FinishedRoundInfoContent content)? finishedRoundInfo,
+    TResult? Function()? finishedGame,
+  }) {
+    return ongoingRoundInfo?.call(content);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String content)? chatMessage,
+    TResult Function(OngoingRoundInfoContent content)? ongoingRoundInfo,
+    TResult Function(FinishedRoundInfoContent content)? finishedRoundInfo,
+    TResult Function()? finishedGame,
+    required TResult orElse(),
+  }) {
+    if (ongoingRoundInfo != null) {
+      return ongoingRoundInfo(content);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ChatMesssage value) chatMessage,
+    required TResult Function(OngoingRoundInfo value) ongoingRoundInfo,
+    required TResult Function(FinishedRoundInfo value) finishedRoundInfo,
+    required TResult Function(FinishedGame value) finishedGame,
+  }) {
+    return ongoingRoundInfo(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ChatMesssage value)? chatMessage,
+    TResult? Function(OngoingRoundInfo value)? ongoingRoundInfo,
+    TResult? Function(FinishedRoundInfo value)? finishedRoundInfo,
+    TResult? Function(FinishedGame value)? finishedGame,
+  }) {
+    return ongoingRoundInfo?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ChatMesssage value)? chatMessage,
+    TResult Function(OngoingRoundInfo value)? ongoingRoundInfo,
+    TResult Function(FinishedRoundInfo value)? finishedRoundInfo,
+    TResult Function(FinishedGame value)? finishedGame,
+    required TResult orElse(),
+  }) {
+    if (ongoingRoundInfo != null) {
+      return ongoingRoundInfo(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$OngoingRoundInfoImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class OngoingRoundInfo implements Message {
+  const factory OngoingRoundInfo(final OngoingRoundInfoContent content) =
+      _$OngoingRoundInfoImpl;
+
+  factory OngoingRoundInfo.fromJson(Map<String, dynamic> json) =
+      _$OngoingRoundInfoImpl.fromJson;
+
+  OngoingRoundInfoContent get content;
+  @JsonKey(ignore: true)
+  _$$OngoingRoundInfoImplCopyWith<_$OngoingRoundInfoImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FinishedRoundInfoImplCopyWith<$Res> {
+  factory _$$FinishedRoundInfoImplCopyWith(_$FinishedRoundInfoImpl value,
+          $Res Function(_$FinishedRoundInfoImpl) then) =
+      __$$FinishedRoundInfoImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({FinishedRoundInfoContent content});
+
+  $FinishedRoundInfoContentCopyWith<$Res> get content;
+}
+
+/// @nodoc
+class __$$FinishedRoundInfoImplCopyWithImpl<$Res>
+    extends _$MessageCopyWithImpl<$Res, _$FinishedRoundInfoImpl>
+    implements _$$FinishedRoundInfoImplCopyWith<$Res> {
+  __$$FinishedRoundInfoImplCopyWithImpl(_$FinishedRoundInfoImpl _value,
+      $Res Function(_$FinishedRoundInfoImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? content = null,
+  }) {
+    return _then(_$FinishedRoundInfoImpl(
+      null == content
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as FinishedRoundInfoContent,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FinishedRoundInfoContentCopyWith<$Res> get content {
+    return $FinishedRoundInfoContentCopyWith<$Res>(_value.content, (value) {
+      return _then(_value.copyWith(content: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$FinishedRoundInfoImpl implements FinishedRoundInfo {
+  const _$FinishedRoundInfoImpl(this.content, {final String? $type})
+      : $type = $type ?? 'FinishedRoundInfo';
+
+  factory _$FinishedRoundInfoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FinishedRoundInfoImplFromJson(json);
+
+  @override
+  final FinishedRoundInfoContent content;
+
+  @JsonKey(name: 'type')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'Message.finishedRoundInfo(content: $content)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FinishedRoundInfoImpl &&
+            (identical(other.content, content) || other.content == content));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, content);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FinishedRoundInfoImplCopyWith<_$FinishedRoundInfoImpl> get copyWith =>
+      __$$FinishedRoundInfoImplCopyWithImpl<_$FinishedRoundInfoImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String content) chatMessage,
+    required TResult Function(OngoingRoundInfoContent content) ongoingRoundInfo,
+    required TResult Function(FinishedRoundInfoContent content)
+        finishedRoundInfo,
+    required TResult Function() finishedGame,
+  }) {
+    return finishedRoundInfo(content);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String content)? chatMessage,
+    TResult? Function(OngoingRoundInfoContent content)? ongoingRoundInfo,
+    TResult? Function(FinishedRoundInfoContent content)? finishedRoundInfo,
+    TResult? Function()? finishedGame,
+  }) {
+    return finishedRoundInfo?.call(content);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String content)? chatMessage,
+    TResult Function(OngoingRoundInfoContent content)? ongoingRoundInfo,
+    TResult Function(FinishedRoundInfoContent content)? finishedRoundInfo,
+    TResult Function()? finishedGame,
+    required TResult orElse(),
+  }) {
+    if (finishedRoundInfo != null) {
+      return finishedRoundInfo(content);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ChatMesssage value) chatMessage,
+    required TResult Function(OngoingRoundInfo value) ongoingRoundInfo,
+    required TResult Function(FinishedRoundInfo value) finishedRoundInfo,
+    required TResult Function(FinishedGame value) finishedGame,
+  }) {
+    return finishedRoundInfo(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ChatMesssage value)? chatMessage,
+    TResult? Function(OngoingRoundInfo value)? ongoingRoundInfo,
+    TResult? Function(FinishedRoundInfo value)? finishedRoundInfo,
+    TResult? Function(FinishedGame value)? finishedGame,
+  }) {
+    return finishedRoundInfo?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ChatMesssage value)? chatMessage,
+    TResult Function(OngoingRoundInfo value)? ongoingRoundInfo,
+    TResult Function(FinishedRoundInfo value)? finishedRoundInfo,
+    TResult Function(FinishedGame value)? finishedGame,
+    required TResult orElse(),
+  }) {
+    if (finishedRoundInfo != null) {
+      return finishedRoundInfo(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$FinishedRoundInfoImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class FinishedRoundInfo implements Message {
+  const factory FinishedRoundInfo(final FinishedRoundInfoContent content) =
+      _$FinishedRoundInfoImpl;
+
+  factory FinishedRoundInfo.fromJson(Map<String, dynamic> json) =
+      _$FinishedRoundInfoImpl.fromJson;
+
+  FinishedRoundInfoContent get content;
+  @JsonKey(ignore: true)
+  _$$FinishedRoundInfoImplCopyWith<_$FinishedRoundInfoImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FinishedGameImplCopyWith<$Res> {
+  factory _$$FinishedGameImplCopyWith(
+          _$FinishedGameImpl value, $Res Function(_$FinishedGameImpl) then) =
+      __$$FinishedGameImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$FinishedGameImplCopyWithImpl<$Res>
+    extends _$MessageCopyWithImpl<$Res, _$FinishedGameImpl>
+    implements _$$FinishedGameImplCopyWith<$Res> {
+  __$$FinishedGameImplCopyWithImpl(
+      _$FinishedGameImpl _value, $Res Function(_$FinishedGameImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$FinishedGameImpl implements FinishedGame {
+  const _$FinishedGameImpl({final String? $type})
+      : $type = $type ?? 'FinishedGame';
+
+  factory _$FinishedGameImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FinishedGameImplFromJson(json);
+
+  @JsonKey(name: 'type')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'Message.finishedGame()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$FinishedGameImpl);
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String content) chatMessage,
+    required TResult Function(OngoingRoundInfoContent content) ongoingRoundInfo,
+    required TResult Function(FinishedRoundInfoContent content)
+        finishedRoundInfo,
+    required TResult Function() finishedGame,
+  }) {
+    return finishedGame();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String content)? chatMessage,
+    TResult? Function(OngoingRoundInfoContent content)? ongoingRoundInfo,
+    TResult? Function(FinishedRoundInfoContent content)? finishedRoundInfo,
+    TResult? Function()? finishedGame,
+  }) {
+    return finishedGame?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String content)? chatMessage,
+    TResult Function(OngoingRoundInfoContent content)? ongoingRoundInfo,
+    TResult Function(FinishedRoundInfoContent content)? finishedRoundInfo,
+    TResult Function()? finishedGame,
+    required TResult orElse(),
+  }) {
+    if (finishedGame != null) {
+      return finishedGame();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ChatMesssage value) chatMessage,
+    required TResult Function(OngoingRoundInfo value) ongoingRoundInfo,
+    required TResult Function(FinishedRoundInfo value) finishedRoundInfo,
+    required TResult Function(FinishedGame value) finishedGame,
+  }) {
+    return finishedGame(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ChatMesssage value)? chatMessage,
+    TResult? Function(OngoingRoundInfo value)? ongoingRoundInfo,
+    TResult? Function(FinishedRoundInfo value)? finishedRoundInfo,
+    TResult? Function(FinishedGame value)? finishedGame,
+  }) {
+    return finishedGame?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ChatMesssage value)? chatMessage,
+    TResult Function(OngoingRoundInfo value)? ongoingRoundInfo,
+    TResult Function(FinishedRoundInfo value)? finishedRoundInfo,
+    TResult Function(FinishedGame value)? finishedGame,
+    required TResult orElse(),
+  }) {
+    if (finishedGame != null) {
+      return finishedGame(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$FinishedGameImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class FinishedGame implements Message {
+  const factory FinishedGame() = _$FinishedGameImpl;
+
+  factory FinishedGame.fromJson(Map<String, dynamic> json) =
+      _$FinishedGameImpl.fromJson;
+}
+
+OngoingRoundInfoContent _$OngoingRoundInfoContentFromJson(
+    Map<String, dynamic> json) {
+  return _OngoingRoundInfoContent.fromJson(json);
+}
+
+/// @nodoc
+mixin _$OngoingRoundInfoContent {
+  String get wordToGuesss => throw _privateConstructorUsedError;
+  String get roundFinishTime => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $OngoingRoundInfoContentCopyWith<OngoingRoundInfoContent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $OngoingRoundInfoContentCopyWith<$Res> {
+  factory $OngoingRoundInfoContentCopyWith(OngoingRoundInfoContent value,
+          $Res Function(OngoingRoundInfoContent) then) =
+      _$OngoingRoundInfoContentCopyWithImpl<$Res, OngoingRoundInfoContent>;
+  @useResult
+  $Res call({String wordToGuesss, String roundFinishTime});
+}
+
+/// @nodoc
+class _$OngoingRoundInfoContentCopyWithImpl<$Res,
+        $Val extends OngoingRoundInfoContent>
+    implements $OngoingRoundInfoContentCopyWith<$Res> {
+  _$OngoingRoundInfoContentCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? wordToGuesss = null,
+    Object? roundFinishTime = null,
+  }) {
+    return _then(_value.copyWith(
+      wordToGuesss: null == wordToGuesss
+          ? _value.wordToGuesss
+          : wordToGuesss // ignore: cast_nullable_to_non_nullable
+              as String,
+      roundFinishTime: null == roundFinishTime
+          ? _value.roundFinishTime
+          : roundFinishTime // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$OngoingRoundInfoContentImplCopyWith<$Res>
+    implements $OngoingRoundInfoContentCopyWith<$Res> {
+  factory _$$OngoingRoundInfoContentImplCopyWith(
+          _$OngoingRoundInfoContentImpl value,
+          $Res Function(_$OngoingRoundInfoContentImpl) then) =
+      __$$OngoingRoundInfoContentImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String wordToGuesss, String roundFinishTime});
+}
+
+/// @nodoc
+class __$$OngoingRoundInfoContentImplCopyWithImpl<$Res>
+    extends _$OngoingRoundInfoContentCopyWithImpl<$Res,
+        _$OngoingRoundInfoContentImpl>
+    implements _$$OngoingRoundInfoContentImplCopyWith<$Res> {
+  __$$OngoingRoundInfoContentImplCopyWithImpl(
+      _$OngoingRoundInfoContentImpl _value,
+      $Res Function(_$OngoingRoundInfoContentImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? wordToGuesss = null,
+    Object? roundFinishTime = null,
+  }) {
+    return _then(_$OngoingRoundInfoContentImpl(
+      wordToGuesss: null == wordToGuesss
+          ? _value.wordToGuesss
+          : wordToGuesss // ignore: cast_nullable_to_non_nullable
+              as String,
+      roundFinishTime: null == roundFinishTime
+          ? _value.roundFinishTime
+          : roundFinishTime // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$OngoingRoundInfoContentImpl implements _OngoingRoundInfoContent {
+  const _$OngoingRoundInfoContentImpl(
+      {required this.wordToGuesss, required this.roundFinishTime});
+
+  factory _$OngoingRoundInfoContentImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OngoingRoundInfoContentImplFromJson(json);
+
+  @override
+  final String wordToGuesss;
+  @override
+  final String roundFinishTime;
+
+  @override
+  String toString() {
+    return 'OngoingRoundInfoContent(wordToGuesss: $wordToGuesss, roundFinishTime: $roundFinishTime)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OngoingRoundInfoContentImpl &&
+            (identical(other.wordToGuesss, wordToGuesss) ||
+                other.wordToGuesss == wordToGuesss) &&
+            (identical(other.roundFinishTime, roundFinishTime) ||
+                other.roundFinishTime == roundFinishTime));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, wordToGuesss, roundFinishTime);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OngoingRoundInfoContentImplCopyWith<_$OngoingRoundInfoContentImpl>
+      get copyWith => __$$OngoingRoundInfoContentImplCopyWithImpl<
+          _$OngoingRoundInfoContentImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$OngoingRoundInfoContentImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _OngoingRoundInfoContent implements OngoingRoundInfoContent {
+  const factory _OngoingRoundInfoContent(
+      {required final String wordToGuesss,
+      required final String roundFinishTime}) = _$OngoingRoundInfoContentImpl;
+
+  factory _OngoingRoundInfoContent.fromJson(Map<String, dynamic> json) =
+      _$OngoingRoundInfoContentImpl.fromJson;
+
+  @override
+  String get wordToGuesss;
+  @override
+  String get roundFinishTime;
   @override
   @JsonKey(ignore: true)
-  _$$MessageImplCopyWith<_$MessageImpl> get copyWith =>
+  _$$OngoingRoundInfoContentImplCopyWith<_$OngoingRoundInfoContentImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+FinishedRoundInfoContent _$FinishedRoundInfoContentFromJson(
+    Map<String, dynamic> json) {
+  return _FinishedRoundInfoContent.fromJson(json);
+}
+
+/// @nodoc
+mixin _$FinishedRoundInfoContent {
+  String get wordToGuesss => throw _privateConstructorUsedError;
+  String get toNextRoundTime => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $FinishedRoundInfoContentCopyWith<FinishedRoundInfoContent> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $FinishedRoundInfoContentCopyWith<$Res> {
+  factory $FinishedRoundInfoContentCopyWith(FinishedRoundInfoContent value,
+          $Res Function(FinishedRoundInfoContent) then) =
+      _$FinishedRoundInfoContentCopyWithImpl<$Res, FinishedRoundInfoContent>;
+  @useResult
+  $Res call({String wordToGuesss, String toNextRoundTime});
+}
+
+/// @nodoc
+class _$FinishedRoundInfoContentCopyWithImpl<$Res,
+        $Val extends FinishedRoundInfoContent>
+    implements $FinishedRoundInfoContentCopyWith<$Res> {
+  _$FinishedRoundInfoContentCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? wordToGuesss = null,
+    Object? toNextRoundTime = null,
+  }) {
+    return _then(_value.copyWith(
+      wordToGuesss: null == wordToGuesss
+          ? _value.wordToGuesss
+          : wordToGuesss // ignore: cast_nullable_to_non_nullable
+              as String,
+      toNextRoundTime: null == toNextRoundTime
+          ? _value.toNextRoundTime
+          : toNextRoundTime // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$FinishedRoundInfoContentImplCopyWith<$Res>
+    implements $FinishedRoundInfoContentCopyWith<$Res> {
+  factory _$$FinishedRoundInfoContentImplCopyWith(
+          _$FinishedRoundInfoContentImpl value,
+          $Res Function(_$FinishedRoundInfoContentImpl) then) =
+      __$$FinishedRoundInfoContentImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String wordToGuesss, String toNextRoundTime});
+}
+
+/// @nodoc
+class __$$FinishedRoundInfoContentImplCopyWithImpl<$Res>
+    extends _$FinishedRoundInfoContentCopyWithImpl<$Res,
+        _$FinishedRoundInfoContentImpl>
+    implements _$$FinishedRoundInfoContentImplCopyWith<$Res> {
+  __$$FinishedRoundInfoContentImplCopyWithImpl(
+      _$FinishedRoundInfoContentImpl _value,
+      $Res Function(_$FinishedRoundInfoContentImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? wordToGuesss = null,
+    Object? toNextRoundTime = null,
+  }) {
+    return _then(_$FinishedRoundInfoContentImpl(
+      wordToGuesss: null == wordToGuesss
+          ? _value.wordToGuesss
+          : wordToGuesss // ignore: cast_nullable_to_non_nullable
+              as String,
+      toNextRoundTime: null == toNextRoundTime
+          ? _value.toNextRoundTime
+          : toNextRoundTime // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$FinishedRoundInfoContentImpl implements _FinishedRoundInfoContent {
+  const _$FinishedRoundInfoContentImpl(
+      {required this.wordToGuesss, required this.toNextRoundTime});
+
+  factory _$FinishedRoundInfoContentImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FinishedRoundInfoContentImplFromJson(json);
+
+  @override
+  final String wordToGuesss;
+  @override
+  final String toNextRoundTime;
+
+  @override
+  String toString() {
+    return 'FinishedRoundInfoContent(wordToGuesss: $wordToGuesss, toNextRoundTime: $toNextRoundTime)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FinishedRoundInfoContentImpl &&
+            (identical(other.wordToGuesss, wordToGuesss) ||
+                other.wordToGuesss == wordToGuesss) &&
+            (identical(other.toNextRoundTime, toNextRoundTime) ||
+                other.toNextRoundTime == toNextRoundTime));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, wordToGuesss, toNextRoundTime);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FinishedRoundInfoContentImplCopyWith<_$FinishedRoundInfoContentImpl>
+      get copyWith => __$$FinishedRoundInfoContentImplCopyWithImpl<
+          _$FinishedRoundInfoContentImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$FinishedRoundInfoContentImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _FinishedRoundInfoContent implements FinishedRoundInfoContent {
+  const factory _FinishedRoundInfoContent(
+      {required final String wordToGuesss,
+      required final String toNextRoundTime}) = _$FinishedRoundInfoContentImpl;
+
+  factory _FinishedRoundInfoContent.fromJson(Map<String, dynamic> json) =
+      _$FinishedRoundInfoContentImpl.fromJson;
+
+  @override
+  String get wordToGuesss;
+  @override
+  String get toNextRoundTime;
+  @override
+  @JsonKey(ignore: true)
+  _$$FinishedRoundInfoContentImplCopyWith<_$FinishedRoundInfoContentImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

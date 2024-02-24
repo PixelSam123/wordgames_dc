@@ -44,24 +44,14 @@ class _HomePageState extends State<HomePage> {
 
     _chatSubscription = channel.stream.listen((event) {
       final message = Message.fromJson(json.decode(event.toString()));
-      print(message);
 
       setState(() {
-        switch (message.type) {
-          case 'ChatMessage':
-            _chatMessages.add(message.content);
-            break;
-          case 'OngoingRoundInfo':
-            _chatMessages.add('PLACEHOLDER ONGOINGROUNDINFO: $message.content');
-            break;
-          case 'FinishedRoundInfo':
-            _chatMessages.add(
-              'PLACEHOLDER FINISHEDROUNDINFO: $message.content',
-            );
-            break;
-          case 'FinishedGame':
-            _chatMessages.add('PLACEHOLDER FINISHEDGAME: $message.content');
-        }
+        (switch (message) {
+          ChatMessage(:final content) => _chatMessages.add(content),
+          OngoingRoundInfo(:final content) => _chatMessages.add('PLACEHOLDER ONGOINGROUNDINFO: $content'),
+          FinishedRoundInfo(:final content) => _chatMessages.add('PLACEHOLDER FINISHEDROUNDINFO: $content'),
+          FinishedGame() => _chatMessages.add('PLACEHOLDER FINISHEDGAME'),
+        });
       });
     });
 
