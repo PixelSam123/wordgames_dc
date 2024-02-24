@@ -6,7 +6,7 @@ part of 'providers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$textScaleHash() => r'5870f7ac99c888a1bbb99ec3d103d8389faf260e';
+String _$textScaleHash() => r'73981607d055f83ace001f0f3dd6eae22dc71219';
 
 /// See also [TextScale].
 @ProviderFor(TextScale)
@@ -21,7 +21,7 @@ final textScaleProvider =
 );
 
 typedef _$TextScale = AutoDisposeAsyncNotifier<double?>;
-String _$isDarkModeHash() => r'044f0cdc8390ac91feba6c9e4f50844bd31a37cb';
+String _$isDarkModeHash() => r'dac9b7bdab9ac7d07a476f07ee13cd2b4b216589';
 
 /// See also [IsDarkMode].
 @ProviderFor(IsDarkMode)
@@ -36,5 +36,20 @@ final isDarkModeProvider =
 );
 
 typedef _$IsDarkMode = AutoDisposeAsyncNotifier<bool?>;
+String _$serverUrlHash() => r'd5023e24d01da18fab81a5230970617a10e1eb50';
+
+/// See also [ServerUrl].
+@ProviderFor(ServerUrl)
+final serverUrlProvider =
+    AutoDisposeAsyncNotifierProvider<ServerUrl, String>.internal(
+  ServerUrl.new,
+  name: r'serverUrlProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$serverUrlHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$ServerUrl = AutoDisposeAsyncNotifier<String>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

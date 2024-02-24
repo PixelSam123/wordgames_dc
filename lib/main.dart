@@ -4,7 +4,7 @@ import 'package:window_size/window_size.dart';
 import 'package:wordgames_dc/pages/home.dart';
 import 'package:wordgames_dc/providers.dart';
 
-const _title = "Wordgames Client";
+const _title = 'Wordgames Client';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,12 +12,12 @@ void main() async {
   final currentWindowFrame = (await getWindowInfo()).frame;
 
   setWindowTitle(_title);
-  setWindowMinSize(const Size(640, 720));
+  setWindowMinSize(const Size(480, 540));
   setWindowFrame(Rect.fromLTWH(
     currentWindowFrame.left,
     currentWindowFrame.top,
+    640,
     720,
-    1024,
   ));
 
   runApp(const ProviderScope(child: MyApp()));

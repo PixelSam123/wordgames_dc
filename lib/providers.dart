@@ -12,7 +12,7 @@ class TextScale extends _$TextScale {
     return (await prefs).getDouble('textScale');
   }
 
-  void set(double value) async {
+  Future<void> set(double value) async {
     (await prefs).setDouble('textScale', value);
     state = AsyncValue.data(value);
   }
@@ -25,8 +25,22 @@ class IsDarkMode extends _$IsDarkMode {
     return (await prefs).getBool('isDarkMode');
   }
 
-  void set(bool value) async {
+  Future<void> set(bool value) async {
     (await prefs).setBool('isDarkMode', value);
+    state = AsyncValue.data(value);
+  }
+}
+
+@riverpod
+class ServerUrl extends _$ServerUrl {
+  @override
+  Future<String> build() async {
+    return (await prefs).getString('serverUrl') ??
+        'wss://wordgames4j.azurewebsites.net/ws/anagram/1';
+  }
+
+  Future<void> set(String value) async {
+    (await prefs).setString('serverUrl', value);
     state = AsyncValue.data(value);
   }
 }

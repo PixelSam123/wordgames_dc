@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 Message _$MessageFromJson(Map<String, dynamic> json) {
   switch (json['type']) {
     case 'ChatMessage':
-      return ChatMesssage.fromJson(json);
+      return ChatMessage.fromJson(json);
     case 'OngoingRoundInfo':
       return OngoingRoundInfo.fromJson(json);
     case 'FinishedRoundInfo':
@@ -61,7 +61,7 @@ mixin _$Message {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ChatMesssage value) chatMessage,
+    required TResult Function(ChatMessage value) chatMessage,
     required TResult Function(OngoingRoundInfo value) ongoingRoundInfo,
     required TResult Function(FinishedRoundInfo value) finishedRoundInfo,
     required TResult Function(FinishedGame value) finishedGame,
@@ -69,7 +69,7 @@ mixin _$Message {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ChatMesssage value)? chatMessage,
+    TResult? Function(ChatMessage value)? chatMessage,
     TResult? Function(OngoingRoundInfo value)? ongoingRoundInfo,
     TResult? Function(FinishedRoundInfo value)? finishedRoundInfo,
     TResult? Function(FinishedGame value)? finishedGame,
@@ -77,7 +77,7 @@ mixin _$Message {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ChatMesssage value)? chatMessage,
+    TResult Function(ChatMessage value)? chatMessage,
     TResult Function(OngoingRoundInfo value)? ongoingRoundInfo,
     TResult Function(FinishedRoundInfo value)? finishedRoundInfo,
     TResult Function(FinishedGame value)? finishedGame,
@@ -105,20 +105,20 @@ class _$MessageCopyWithImpl<$Res, $Val extends Message>
 }
 
 /// @nodoc
-abstract class _$$ChatMesssageImplCopyWith<$Res> {
-  factory _$$ChatMesssageImplCopyWith(
-          _$ChatMesssageImpl value, $Res Function(_$ChatMesssageImpl) then) =
-      __$$ChatMesssageImplCopyWithImpl<$Res>;
+abstract class _$$ChatMessageImplCopyWith<$Res> {
+  factory _$$ChatMessageImplCopyWith(
+          _$ChatMessageImpl value, $Res Function(_$ChatMessageImpl) then) =
+      __$$ChatMessageImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String content});
 }
 
 /// @nodoc
-class __$$ChatMesssageImplCopyWithImpl<$Res>
-    extends _$MessageCopyWithImpl<$Res, _$ChatMesssageImpl>
-    implements _$$ChatMesssageImplCopyWith<$Res> {
-  __$$ChatMesssageImplCopyWithImpl(
-      _$ChatMesssageImpl _value, $Res Function(_$ChatMesssageImpl) _then)
+class __$$ChatMessageImplCopyWithImpl<$Res>
+    extends _$MessageCopyWithImpl<$Res, _$ChatMessageImpl>
+    implements _$$ChatMessageImplCopyWith<$Res> {
+  __$$ChatMessageImplCopyWithImpl(
+      _$ChatMessageImpl _value, $Res Function(_$ChatMessageImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -126,7 +126,7 @@ class __$$ChatMesssageImplCopyWithImpl<$Res>
   $Res call({
     Object? content = null,
   }) {
-    return _then(_$ChatMesssageImpl(
+    return _then(_$ChatMessageImpl(
       null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
@@ -137,12 +137,12 @@ class __$$ChatMesssageImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ChatMesssageImpl implements ChatMesssage {
-  const _$ChatMesssageImpl(this.content, {final String? $type})
+class _$ChatMessageImpl implements ChatMessage {
+  const _$ChatMessageImpl(this.content, {final String? $type})
       : $type = $type ?? 'ChatMessage';
 
-  factory _$ChatMesssageImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ChatMesssageImplFromJson(json);
+  factory _$ChatMessageImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ChatMessageImplFromJson(json);
 
   @override
   final String content;
@@ -159,7 +159,7 @@ class _$ChatMesssageImpl implements ChatMesssage {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChatMesssageImpl &&
+            other is _$ChatMessageImpl &&
             (identical(other.content, content) || other.content == content));
   }
 
@@ -170,8 +170,8 @@ class _$ChatMesssageImpl implements ChatMesssage {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChatMesssageImplCopyWith<_$ChatMesssageImpl> get copyWith =>
-      __$$ChatMesssageImplCopyWithImpl<_$ChatMesssageImpl>(this, _$identity);
+  _$$ChatMessageImplCopyWith<_$ChatMessageImpl> get copyWith =>
+      __$$ChatMessageImplCopyWithImpl<_$ChatMessageImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -214,7 +214,7 @@ class _$ChatMesssageImpl implements ChatMesssage {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ChatMesssage value) chatMessage,
+    required TResult Function(ChatMessage value) chatMessage,
     required TResult Function(OngoingRoundInfo value) ongoingRoundInfo,
     required TResult Function(FinishedRoundInfo value) finishedRoundInfo,
     required TResult Function(FinishedGame value) finishedGame,
@@ -225,7 +225,7 @@ class _$ChatMesssageImpl implements ChatMesssage {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ChatMesssage value)? chatMessage,
+    TResult? Function(ChatMessage value)? chatMessage,
     TResult? Function(OngoingRoundInfo value)? ongoingRoundInfo,
     TResult? Function(FinishedRoundInfo value)? finishedRoundInfo,
     TResult? Function(FinishedGame value)? finishedGame,
@@ -236,7 +236,7 @@ class _$ChatMesssageImpl implements ChatMesssage {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ChatMesssage value)? chatMessage,
+    TResult Function(ChatMessage value)? chatMessage,
     TResult Function(OngoingRoundInfo value)? ongoingRoundInfo,
     TResult Function(FinishedRoundInfo value)? finishedRoundInfo,
     TResult Function(FinishedGame value)? finishedGame,
@@ -250,21 +250,21 @@ class _$ChatMesssageImpl implements ChatMesssage {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ChatMesssageImplToJson(
+    return _$$ChatMessageImplToJson(
       this,
     );
   }
 }
 
-abstract class ChatMesssage implements Message {
-  const factory ChatMesssage(final String content) = _$ChatMesssageImpl;
+abstract class ChatMessage implements Message {
+  const factory ChatMessage(final String content) = _$ChatMessageImpl;
 
-  factory ChatMesssage.fromJson(Map<String, dynamic> json) =
-      _$ChatMesssageImpl.fromJson;
+  factory ChatMessage.fromJson(Map<String, dynamic> json) =
+      _$ChatMessageImpl.fromJson;
 
   String get content;
   @JsonKey(ignore: true)
-  _$$ChatMesssageImplCopyWith<_$ChatMesssageImpl> get copyWith =>
+  _$$ChatMessageImplCopyWith<_$ChatMessageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -389,7 +389,7 @@ class _$OngoingRoundInfoImpl implements OngoingRoundInfo {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ChatMesssage value) chatMessage,
+    required TResult Function(ChatMessage value) chatMessage,
     required TResult Function(OngoingRoundInfo value) ongoingRoundInfo,
     required TResult Function(FinishedRoundInfo value) finishedRoundInfo,
     required TResult Function(FinishedGame value) finishedGame,
@@ -400,7 +400,7 @@ class _$OngoingRoundInfoImpl implements OngoingRoundInfo {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ChatMesssage value)? chatMessage,
+    TResult? Function(ChatMessage value)? chatMessage,
     TResult? Function(OngoingRoundInfo value)? ongoingRoundInfo,
     TResult? Function(FinishedRoundInfo value)? finishedRoundInfo,
     TResult? Function(FinishedGame value)? finishedGame,
@@ -411,7 +411,7 @@ class _$OngoingRoundInfoImpl implements OngoingRoundInfo {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ChatMesssage value)? chatMessage,
+    TResult Function(ChatMessage value)? chatMessage,
     TResult Function(OngoingRoundInfo value)? ongoingRoundInfo,
     TResult Function(FinishedRoundInfo value)? finishedRoundInfo,
     TResult Function(FinishedGame value)? finishedGame,
@@ -565,7 +565,7 @@ class _$FinishedRoundInfoImpl implements FinishedRoundInfo {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ChatMesssage value) chatMessage,
+    required TResult Function(ChatMessage value) chatMessage,
     required TResult Function(OngoingRoundInfo value) ongoingRoundInfo,
     required TResult Function(FinishedRoundInfo value) finishedRoundInfo,
     required TResult Function(FinishedGame value) finishedGame,
@@ -576,7 +576,7 @@ class _$FinishedRoundInfoImpl implements FinishedRoundInfo {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ChatMesssage value)? chatMessage,
+    TResult? Function(ChatMessage value)? chatMessage,
     TResult? Function(OngoingRoundInfo value)? ongoingRoundInfo,
     TResult? Function(FinishedRoundInfo value)? finishedRoundInfo,
     TResult? Function(FinishedGame value)? finishedGame,
@@ -587,7 +587,7 @@ class _$FinishedRoundInfoImpl implements FinishedRoundInfo {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ChatMesssage value)? chatMessage,
+    TResult Function(ChatMessage value)? chatMessage,
     TResult Function(OngoingRoundInfo value)? ongoingRoundInfo,
     TResult Function(FinishedRoundInfo value)? finishedRoundInfo,
     TResult Function(FinishedGame value)? finishedGame,
@@ -704,7 +704,7 @@ class _$FinishedGameImpl implements FinishedGame {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ChatMesssage value) chatMessage,
+    required TResult Function(ChatMessage value) chatMessage,
     required TResult Function(OngoingRoundInfo value) ongoingRoundInfo,
     required TResult Function(FinishedRoundInfo value) finishedRoundInfo,
     required TResult Function(FinishedGame value) finishedGame,
@@ -715,7 +715,7 @@ class _$FinishedGameImpl implements FinishedGame {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ChatMesssage value)? chatMessage,
+    TResult? Function(ChatMessage value)? chatMessage,
     TResult? Function(OngoingRoundInfo value)? ongoingRoundInfo,
     TResult? Function(FinishedRoundInfo value)? finishedRoundInfo,
     TResult? Function(FinishedGame value)? finishedGame,
@@ -726,7 +726,7 @@ class _$FinishedGameImpl implements FinishedGame {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ChatMesssage value)? chatMessage,
+    TResult Function(ChatMessage value)? chatMessage,
     TResult Function(OngoingRoundInfo value)? ongoingRoundInfo,
     TResult Function(FinishedRoundInfo value)? finishedRoundInfo,
     TResult Function(FinishedGame value)? finishedGame,
@@ -760,7 +760,7 @@ OngoingRoundInfoContent _$OngoingRoundInfoContentFromJson(
 
 /// @nodoc
 mixin _$OngoingRoundInfoContent {
-  String get wordToGuesss => throw _privateConstructorUsedError;
+  String get wordToGuess => throw _privateConstructorUsedError;
   String get roundFinishTime => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -775,7 +775,7 @@ abstract class $OngoingRoundInfoContentCopyWith<$Res> {
           $Res Function(OngoingRoundInfoContent) then) =
       _$OngoingRoundInfoContentCopyWithImpl<$Res, OngoingRoundInfoContent>;
   @useResult
-  $Res call({String wordToGuesss, String roundFinishTime});
+  $Res call({String wordToGuess, String roundFinishTime});
 }
 
 /// @nodoc
@@ -792,13 +792,13 @@ class _$OngoingRoundInfoContentCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? wordToGuesss = null,
+    Object? wordToGuess = null,
     Object? roundFinishTime = null,
   }) {
     return _then(_value.copyWith(
-      wordToGuesss: null == wordToGuesss
-          ? _value.wordToGuesss
-          : wordToGuesss // ignore: cast_nullable_to_non_nullable
+      wordToGuess: null == wordToGuess
+          ? _value.wordToGuess
+          : wordToGuess // ignore: cast_nullable_to_non_nullable
               as String,
       roundFinishTime: null == roundFinishTime
           ? _value.roundFinishTime
@@ -817,7 +817,7 @@ abstract class _$$OngoingRoundInfoContentImplCopyWith<$Res>
       __$$OngoingRoundInfoContentImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String wordToGuesss, String roundFinishTime});
+  $Res call({String wordToGuess, String roundFinishTime});
 }
 
 /// @nodoc
@@ -833,13 +833,13 @@ class __$$OngoingRoundInfoContentImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? wordToGuesss = null,
+    Object? wordToGuess = null,
     Object? roundFinishTime = null,
   }) {
     return _then(_$OngoingRoundInfoContentImpl(
-      wordToGuesss: null == wordToGuesss
-          ? _value.wordToGuesss
-          : wordToGuesss // ignore: cast_nullable_to_non_nullable
+      wordToGuess: null == wordToGuess
+          ? _value.wordToGuess
+          : wordToGuess // ignore: cast_nullable_to_non_nullable
               as String,
       roundFinishTime: null == roundFinishTime
           ? _value.roundFinishTime
@@ -850,22 +850,23 @@ class __$$OngoingRoundInfoContentImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(fieldRename: FieldRename.snake)
 class _$OngoingRoundInfoContentImpl implements _OngoingRoundInfoContent {
   const _$OngoingRoundInfoContentImpl(
-      {required this.wordToGuesss, required this.roundFinishTime});
+      {required this.wordToGuess, required this.roundFinishTime});
 
   factory _$OngoingRoundInfoContentImpl.fromJson(Map<String, dynamic> json) =>
       _$$OngoingRoundInfoContentImplFromJson(json);
 
   @override
-  final String wordToGuesss;
+  final String wordToGuess;
   @override
   final String roundFinishTime;
 
   @override
   String toString() {
-    return 'OngoingRoundInfoContent(wordToGuesss: $wordToGuesss, roundFinishTime: $roundFinishTime)';
+    return 'OngoingRoundInfoContent(wordToGuess: $wordToGuess, roundFinishTime: $roundFinishTime)';
   }
 
   @override
@@ -873,15 +874,15 @@ class _$OngoingRoundInfoContentImpl implements _OngoingRoundInfoContent {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$OngoingRoundInfoContentImpl &&
-            (identical(other.wordToGuesss, wordToGuesss) ||
-                other.wordToGuesss == wordToGuesss) &&
+            (identical(other.wordToGuess, wordToGuess) ||
+                other.wordToGuess == wordToGuess) &&
             (identical(other.roundFinishTime, roundFinishTime) ||
                 other.roundFinishTime == roundFinishTime));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, wordToGuesss, roundFinishTime);
+  int get hashCode => Object.hash(runtimeType, wordToGuess, roundFinishTime);
 
   @JsonKey(ignore: true)
   @override
@@ -900,14 +901,14 @@ class _$OngoingRoundInfoContentImpl implements _OngoingRoundInfoContent {
 
 abstract class _OngoingRoundInfoContent implements OngoingRoundInfoContent {
   const factory _OngoingRoundInfoContent(
-      {required final String wordToGuesss,
+      {required final String wordToGuess,
       required final String roundFinishTime}) = _$OngoingRoundInfoContentImpl;
 
   factory _OngoingRoundInfoContent.fromJson(Map<String, dynamic> json) =
       _$OngoingRoundInfoContentImpl.fromJson;
 
   @override
-  String get wordToGuesss;
+  String get wordToGuess;
   @override
   String get roundFinishTime;
   @override
@@ -923,7 +924,7 @@ FinishedRoundInfoContent _$FinishedRoundInfoContentFromJson(
 
 /// @nodoc
 mixin _$FinishedRoundInfoContent {
-  String get wordToGuesss => throw _privateConstructorUsedError;
+  String get wordAnswer => throw _privateConstructorUsedError;
   String get toNextRoundTime => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -938,7 +939,7 @@ abstract class $FinishedRoundInfoContentCopyWith<$Res> {
           $Res Function(FinishedRoundInfoContent) then) =
       _$FinishedRoundInfoContentCopyWithImpl<$Res, FinishedRoundInfoContent>;
   @useResult
-  $Res call({String wordToGuesss, String toNextRoundTime});
+  $Res call({String wordAnswer, String toNextRoundTime});
 }
 
 /// @nodoc
@@ -955,13 +956,13 @@ class _$FinishedRoundInfoContentCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? wordToGuesss = null,
+    Object? wordAnswer = null,
     Object? toNextRoundTime = null,
   }) {
     return _then(_value.copyWith(
-      wordToGuesss: null == wordToGuesss
-          ? _value.wordToGuesss
-          : wordToGuesss // ignore: cast_nullable_to_non_nullable
+      wordAnswer: null == wordAnswer
+          ? _value.wordAnswer
+          : wordAnswer // ignore: cast_nullable_to_non_nullable
               as String,
       toNextRoundTime: null == toNextRoundTime
           ? _value.toNextRoundTime
@@ -980,7 +981,7 @@ abstract class _$$FinishedRoundInfoContentImplCopyWith<$Res>
       __$$FinishedRoundInfoContentImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String wordToGuesss, String toNextRoundTime});
+  $Res call({String wordAnswer, String toNextRoundTime});
 }
 
 /// @nodoc
@@ -996,13 +997,13 @@ class __$$FinishedRoundInfoContentImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? wordToGuesss = null,
+    Object? wordAnswer = null,
     Object? toNextRoundTime = null,
   }) {
     return _then(_$FinishedRoundInfoContentImpl(
-      wordToGuesss: null == wordToGuesss
-          ? _value.wordToGuesss
-          : wordToGuesss // ignore: cast_nullable_to_non_nullable
+      wordAnswer: null == wordAnswer
+          ? _value.wordAnswer
+          : wordAnswer // ignore: cast_nullable_to_non_nullable
               as String,
       toNextRoundTime: null == toNextRoundTime
           ? _value.toNextRoundTime
@@ -1013,22 +1014,23 @@ class __$$FinishedRoundInfoContentImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(fieldRename: FieldRename.snake)
 class _$FinishedRoundInfoContentImpl implements _FinishedRoundInfoContent {
   const _$FinishedRoundInfoContentImpl(
-      {required this.wordToGuesss, required this.toNextRoundTime});
+      {required this.wordAnswer, required this.toNextRoundTime});
 
   factory _$FinishedRoundInfoContentImpl.fromJson(Map<String, dynamic> json) =>
       _$$FinishedRoundInfoContentImplFromJson(json);
 
   @override
-  final String wordToGuesss;
+  final String wordAnswer;
   @override
   final String toNextRoundTime;
 
   @override
   String toString() {
-    return 'FinishedRoundInfoContent(wordToGuesss: $wordToGuesss, toNextRoundTime: $toNextRoundTime)';
+    return 'FinishedRoundInfoContent(wordAnswer: $wordAnswer, toNextRoundTime: $toNextRoundTime)';
   }
 
   @override
@@ -1036,15 +1038,15 @@ class _$FinishedRoundInfoContentImpl implements _FinishedRoundInfoContent {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FinishedRoundInfoContentImpl &&
-            (identical(other.wordToGuesss, wordToGuesss) ||
-                other.wordToGuesss == wordToGuesss) &&
+            (identical(other.wordAnswer, wordAnswer) ||
+                other.wordAnswer == wordAnswer) &&
             (identical(other.toNextRoundTime, toNextRoundTime) ||
                 other.toNextRoundTime == toNextRoundTime));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, wordToGuesss, toNextRoundTime);
+  int get hashCode => Object.hash(runtimeType, wordAnswer, toNextRoundTime);
 
   @JsonKey(ignore: true)
   @override
@@ -1063,14 +1065,14 @@ class _$FinishedRoundInfoContentImpl implements _FinishedRoundInfoContent {
 
 abstract class _FinishedRoundInfoContent implements FinishedRoundInfoContent {
   const factory _FinishedRoundInfoContent(
-      {required final String wordToGuesss,
+      {required final String wordAnswer,
       required final String toNextRoundTime}) = _$FinishedRoundInfoContentImpl;
 
   factory _FinishedRoundInfoContent.fromJson(Map<String, dynamic> json) =
       _$FinishedRoundInfoContentImpl.fromJson;
 
   @override
-  String get wordToGuesss;
+  String get wordAnswer;
   @override
   String get toNextRoundTime;
   @override

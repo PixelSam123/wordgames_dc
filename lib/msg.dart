@@ -3,9 +3,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'msg.freezed.dart';
 part 'msg.g.dart';
 
-@Freezed(unionKey: "type", unionValueCase: FreezedUnionCase.pascal)
+@Freezed(unionKey: 'type', unionValueCase: FreezedUnionCase.pascal)
 class Message with _$Message {
-  const factory Message.chatMessage(String content) = ChatMesssage;
+  const factory Message.chatMessage(String content) = ChatMessage;
   const factory Message.ongoingRoundInfo(OngoingRoundInfoContent content) =
       OngoingRoundInfo;
   const factory Message.finishedRoundInfo(FinishedRoundInfoContent content) =
@@ -19,10 +19,11 @@ class Message with _$Message {
 }
 
 @freezed
-@JsonSerializable(fieldRename: FieldRename.snake)
 class OngoingRoundInfoContent with _$OngoingRoundInfoContent {
+  // ignore: invalid_annotation_target
+  @JsonSerializable(fieldRename: FieldRename.snake)
   const factory OngoingRoundInfoContent({
-    required String wordToGuesss,
+    required String wordToGuess,
     required String roundFinishTime,
   }) = _OngoingRoundInfoContent;
 
@@ -31,10 +32,11 @@ class OngoingRoundInfoContent with _$OngoingRoundInfoContent {
 }
 
 @freezed
-@JsonSerializable(fieldRename: FieldRename.snake)
 class FinishedRoundInfoContent with _$FinishedRoundInfoContent {
+  // ignore: invalid_annotation_target
+  @JsonSerializable(fieldRename: FieldRename.snake)
   const factory FinishedRoundInfoContent({
-    required String wordToGuesss,
+    required String wordAnswer,
     required String toNextRoundTime,
   }) = _FinishedRoundInfoContent;
 

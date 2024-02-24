@@ -25,14 +25,14 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
     super.dispose();
   }
 
-  void _setTextScale() {
+  void _setTextScale() async {
     final textScale = ref.read(textScaleProvider.notifier);
-    textScale.set(double.parse(textScaleController.text));
+    await textScale.set(double.parse(textScaleController.text));
   }
 
-  void _setIsDarkMode(bool value) {
+  void _setIsDarkMode(bool value) async {
     final isDarkMode = ref.read(isDarkModeProvider.notifier);
-    isDarkMode.set(value);
+    await isDarkMode.set(value);
   }
 
   @override
@@ -47,15 +47,25 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('Dark Mode'),
-            Switch(
-              value: isDarkMode.asData?.value ?? true,
-              onChanged: _setIsDarkMode,
+            Row(
+              children: [
+                const Text('Dark Mode'),
+                const SizedBox(width: 8.0),
+                Switch(
+                  value: isDarkMode.asData?.value ?? true,
+                  onChanged: _setIsDarkMode,
+                ),
+              ],
             ),
-            const Text('Text Scale'),
+            const SizedBox(height: 16.0),
             TextField(
               controller: textScaleController,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Text Scale',
+              ),
               onEditingComplete: _setTextScale,
             ),
           ],

@@ -6,41 +6,13 @@ part of 'msg.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-OngoingRoundInfoContent _$OngoingRoundInfoContentFromJson(
-        Map<String, dynamic> json) =>
-    OngoingRoundInfoContent(
-      wordToGuesss: json['word_to_guesss'] as String,
-      roundFinishTime: json['round_finish_time'] as String,
-    );
-
-Map<String, dynamic> _$OngoingRoundInfoContentToJson(
-        OngoingRoundInfoContent instance) =>
-    <String, dynamic>{
-      'word_to_guesss': instance.wordToGuesss,
-      'round_finish_time': instance.roundFinishTime,
-    };
-
-FinishedRoundInfoContent _$FinishedRoundInfoContentFromJson(
-        Map<String, dynamic> json) =>
-    FinishedRoundInfoContent(
-      wordToGuesss: json['word_to_guesss'] as String,
-      toNextRoundTime: json['to_next_round_time'] as String,
-    );
-
-Map<String, dynamic> _$FinishedRoundInfoContentToJson(
-        FinishedRoundInfoContent instance) =>
-    <String, dynamic>{
-      'word_to_guesss': instance.wordToGuesss,
-      'to_next_round_time': instance.toNextRoundTime,
-    };
-
-_$ChatMesssageImpl _$$ChatMesssageImplFromJson(Map<String, dynamic> json) =>
-    _$ChatMesssageImpl(
+_$ChatMessageImpl _$$ChatMessageImplFromJson(Map<String, dynamic> json) =>
+    _$ChatMessageImpl(
       json['content'] as String,
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$ChatMesssageImplToJson(_$ChatMesssageImpl instance) =>
+Map<String, dynamic> _$$ChatMessageImplToJson(_$ChatMessageImpl instance) =>
     <String, dynamic>{
       'content': instance.content,
       'type': instance.$type,
@@ -88,27 +60,27 @@ Map<String, dynamic> _$$FinishedGameImplToJson(_$FinishedGameImpl instance) =>
 _$OngoingRoundInfoContentImpl _$$OngoingRoundInfoContentImplFromJson(
         Map<String, dynamic> json) =>
     _$OngoingRoundInfoContentImpl(
-      wordToGuesss: json['wordToGuesss'] as String,
-      roundFinishTime: json['roundFinishTime'] as String,
+      wordToGuess: json['word_to_guess'] as String,
+      roundFinishTime: json['round_finish_time'] as String,
     );
 
 Map<String, dynamic> _$$OngoingRoundInfoContentImplToJson(
         _$OngoingRoundInfoContentImpl instance) =>
     <String, dynamic>{
-      'wordToGuesss': instance.wordToGuesss,
-      'roundFinishTime': instance.roundFinishTime,
+      'word_to_guess': instance.wordToGuess,
+      'round_finish_time': instance.roundFinishTime,
     };
 
 _$FinishedRoundInfoContentImpl _$$FinishedRoundInfoContentImplFromJson(
         Map<String, dynamic> json) =>
     _$FinishedRoundInfoContentImpl(
-      wordToGuesss: json['wordToGuesss'] as String,
-      toNextRoundTime: json['toNextRoundTime'] as String,
+      wordAnswer: json['word_answer'] as String,
+      toNextRoundTime: json['to_next_round_time'] as String,
     );
 
 Map<String, dynamic> _$$FinishedRoundInfoContentImplToJson(
         _$FinishedRoundInfoContentImpl instance) =>
     <String, dynamic>{
-      'wordToGuesss': instance.wordToGuesss,
-      'toNextRoundTime': instance.toNextRoundTime,
+      'word_answer': instance.wordAnswer,
+      'to_next_round_time': instance.toNextRoundTime,
     };
