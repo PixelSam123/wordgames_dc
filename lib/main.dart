@@ -16,12 +16,9 @@ void main() async {
 
     setWindowTitle(_title);
     setWindowMinSize(const Size(600, 800));
-    setWindowFrame(Rect.fromLTWH(
-      currentWindowFrame.left,
-      currentWindowFrame.top,
-      800,
-      1000,
-    ));
+    setWindowFrame(
+      Rect.fromLTWH(currentWindowFrame.left, currentWindowFrame.top, 600, 800),
+    );
   }
 
   runApp(const ProviderScope(child: MyApp()));
