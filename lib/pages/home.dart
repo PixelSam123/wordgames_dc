@@ -168,7 +168,7 @@ class _HomePageState extends ConsumerState<HomePage> {
   }
 
   void _sendMessage() {
-    final message = _chatController.text;
+    final message = _chatController.text.trim();
 
     if (message == '/clear') {
       setState(() {
@@ -176,7 +176,7 @@ class _HomePageState extends ConsumerState<HomePage> {
       });
 
       _chatController.clear();
-    } else if (_channel != null) {
+    } else if (_channel != null && message.isNotEmpty) {
       _channel!.sink.add(message);
 
       _chatController.clear();
