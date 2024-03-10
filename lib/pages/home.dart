@@ -199,6 +199,7 @@ class _HomePageState extends ConsumerState<HomePage> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text('Wordgames Client'),
+        scrolledUnderElevation: 0.0,
         actions: [
           IconButton(
             icon: const Icon(Icons.settings),
