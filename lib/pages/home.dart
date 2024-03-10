@@ -198,7 +198,10 @@ class _HomePageState extends ConsumerState<HomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Wordgames Client'),
+        title: Text(
+          'Wordgames Client - ${_wordBox.isNotEmpty ? 'Playing' : 'Idle'}',
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
         scrolledUnderElevation: 0.0,
         actions: [
           IconButton(
