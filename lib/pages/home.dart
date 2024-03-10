@@ -269,7 +269,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                             .headlineMedium!
                             .fontSize,
                       ),
-                      _wordBox.isEmpty ? '-' : '"$_wordBox"',
+                      _wordBox.isEmpty ? '-' : "'$_wordBox'",
                     ),
                   ],
                 ),
