@@ -13,12 +13,21 @@ void main() async {
 
   if (Platform.isWindows || Platform.isMacOS || Platform.isLinux) {
     final currentWindowFrame = (await getWindowInfo()).frame;
+    final currentScreenSize = (await getCurrentScreen())?.frame.size;
 
     setWindowTitle(_title);
-    setWindowMinSize(const Size(600, 800));
-    setWindowFrame(
-      Rect.fromLTWH(currentWindowFrame.left, currentWindowFrame.top, 600, 800),
-    );
+
+    if (currentScreenSize != null && currentScreenSize.width > 2560) {
+      setWindowMinSize(const Size(600, 800));
+      setWindowFrame(
+        Rect.fromLTWH(currentWindowFrame.left, currentWindowFrame.top, 800, 1000),
+      );
+    } else {
+      setWindowMinSize(const Size(400, 600));
+      setWindowFrame(
+        Rect.fromLTWH(currentWindowFrame.left, currentWindowFrame.top, 600, 800),
+      );
+    }
   }
 
   runApp(const ProviderScope(child: MyApp()));
