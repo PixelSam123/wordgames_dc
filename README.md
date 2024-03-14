@@ -1,16 +1,11 @@
 # wordgames_dc
 
-A new Flutter project.
+Another native client for wordgames, a word games server for WebSockets
 
-## Getting Started
+## Current available server URLs
 
-This project is a starting point for a Flutter application.
+Please note that both servers have slight differences in how to play.  
+One thing that's the same though, is that you should type `/help` for instructions.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- English: `wss://play.norin.me/ws/anagram`
+- Indonesian: `wss://wordgames4j.azurewebsites.net/ws/anagram/1`
