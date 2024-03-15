@@ -32,6 +32,19 @@ class IsDarkMode extends _$IsDarkMode {
 }
 
 @riverpod
+class SeedColor extends _$SeedColor {
+  @override
+  Future<String?> build() async {
+    return (await prefs).getString('seedColor');
+  }
+
+  Future<void> set(String value) async {
+    (await prefs).setString('seedColor', value);
+    state = AsyncValue.data(value);
+  }
+}
+
+@riverpod
 class ServerUrl extends _$ServerUrl {
   @override
   Future<String> build() async {

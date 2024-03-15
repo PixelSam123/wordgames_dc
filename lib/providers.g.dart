@@ -36,6 +36,21 @@ final isDarkModeProvider =
 );
 
 typedef _$IsDarkMode = AutoDisposeAsyncNotifier<bool?>;
+String _$seedColorHash() => r'902b9de25010148166cbc01a4392823d07ad7192';
+
+/// See also [SeedColor].
+@ProviderFor(SeedColor)
+final seedColorProvider =
+    AutoDisposeAsyncNotifierProvider<SeedColor, String?>.internal(
+  SeedColor.new,
+  name: r'seedColorProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$seedColorHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$SeedColor = AutoDisposeAsyncNotifier<String?>;
 String _$serverUrlHash() => r'd5023e24d01da18fab81a5230970617a10e1eb50';
 
 /// See also [ServerUrl].

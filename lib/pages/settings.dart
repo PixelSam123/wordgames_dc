@@ -11,23 +11,33 @@ class SettingsPage extends ConsumerStatefulWidget {
 
 class _SettingsPageState extends ConsumerState<SettingsPage> {
   final textScaleController = TextEditingController();
+  final seedColorController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
     textScaleController.text =
         (ref.read(textScaleProvider).asData?.value ?? 1.0).toString();
+    seedColorController.text =
+        ref.read(seedColorProvider).asData?.value ?? 'blue';
   }
 
   @override
   void dispose() {
     textScaleController.dispose();
+    seedColorController.dispose();
+
     super.dispose();
   }
 
   void _setTextScale() async {
     final textScale = ref.read(textScaleProvider.notifier);
     await textScale.set(double.parse(textScaleController.text));
+  }
+
+  void _setSeedColor() async {
+    final seedColor = ref.read(seedColorProvider.notifier);
+    await seedColor.set(seedColorController.text);
   }
 
   void _setIsDarkMode(bool value) async {
@@ -67,6 +77,15 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
                 labelText: 'Text Scale',
               ),
               onEditingComplete: _setTextScale,
+            ),
+            const SizedBox(height: 16.0),
+            TextField(
+              controller: seedColorController,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Seed Color (refer to Material colors)',
+              ),
+              onEditingComplete: _setSeedColor,
             ),
           ],
         ),
