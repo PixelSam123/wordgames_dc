@@ -9,3 +9,4 @@ One thing that's the same though, is that you should type `/help` for instructio
 
 - English: `wss://play.norin.me/ws/anagram`
 - Indonesian: `wss://wordgames4j.azurewebsites.net/ws/anagram/1`
+- Indonesian (Bun): `TBA`
